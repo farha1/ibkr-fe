@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { INewsItem } from "../page";
 import NewsItem from "./NewsItem";
 import Footer from "./Footer";
@@ -23,24 +24,19 @@ const NewsPage = ({
   return (
     <div className="sm:mx-[18em] mx-[0.5em] sm:p-8 p-5 pb-20 gap-16 sm:px-20 sm:py-8 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-4 row-start-2 items-center sm:items-start">
-        <Image
-          src="/dgxp-news.svg"
-          alt="Next.js logo"
-          width={250}
-          height={75}
-          priority
-        />
-        <span className="font-bold font-[family-name:var(--font-noticia-text)]">
-          For busy people who want to stay informed.
-        </span>
+        <Link href="/">
+          <Image
+            src="/dgxp-news.svg"
+            alt="Next.js logo"
+            width={250}
+            height={75}
+            priority
+          />
+        </Link>
         <div className="flex gap-2 flex-wrap mt-4">
           {sections.map((section) => {
             return (
-              <a
-                key={section}
-                className="flex items-center gap-2"
-                href={`/${section}`}
-              >
+              <Link key={section} href={`/${section}`}>
                 <span
                   className={`capitalize inline-flex items-center px-2 py-1 text-sm font-medium text-black border-b-[2.5px] ${
                     section === path ? "border-black" : "border-transparent"
@@ -48,7 +44,7 @@ const NewsPage = ({
                 >
                   {section}
                 </span>
-              </a>
+              </Link>
             );
           })}
         </div>
@@ -66,22 +62,22 @@ const NewsPage = ({
       <div className="flex justify-between font-[family-name:var(--font-noticia-text)] font-bold">
         <div>
           {!newsEmpty && parseInt(page) < totalPage && (
-            <a
+            <Link
               className="text-gray-700 sm:text-lg hover:text-black"
               href={`/${path}/${parseInt(page) + 1}`}
             >
               Older News
-            </a>
+            </Link>
           )}
         </div>
         <div>
           {!newsEmpty && parseInt(page) !== 1 && (
-            <a
+            <Link
               className="text-gray-700 sm:text-lg hover:text-black"
               href={`/${path}/${parseInt(page) - 1}`}
             >
               Newer News
-            </a>
+            </Link>
           )}
         </div>
       </div>

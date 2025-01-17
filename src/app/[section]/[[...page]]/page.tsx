@@ -38,7 +38,7 @@ export async function generateStaticParams() {
   return params;
 }
 
-export default async function Home({
+export default async function Page({
   params,
 }: {
   params: Promise<{ page: string[]; section: string }>;
