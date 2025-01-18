@@ -23,10 +23,10 @@ const NewsPage = ({
   const newsEmpty = newsItems.length === 0;
   return (
     <div className="sm:mx-[18em] mx-[0.5em] sm:p-8 p-5 pb-20 gap-16 sm:px-20 sm:py-8 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-4 row-start-2 items-center sm:items-start">
+      <main className="flex flex-col row-start-2 items-center sm:items-start">
         <Link href="/">
           <Image
-            src="/dgxp-news.svg"
+            src="/bbsr-news.svg"
             alt="Next.js logo"
             width={250}
             height={75}
@@ -59,7 +59,7 @@ const NewsPage = ({
           )}
         </div>
       </main>
-      <div className="flex justify-between font-[family-name:var(--font-noticia-text)] font-bold">
+      <div className="flex justify-between font-medium">
         <div>
           {!newsEmpty && parseInt(page) < totalPage && (
             <Link

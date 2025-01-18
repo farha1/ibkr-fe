@@ -14,7 +14,7 @@ export default async function Page() {
     <div className="sm:mx-[18em] mx-[0.5em] sm:pt-36 pt-20 p-5 pb-20 gap-16 sm:px-20 sm:py-8 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-2 row-start-2 items-center">
         <Image
-          src="/dgxp-news.svg"
+          src="/bbsr-news.svg"
           alt="Next.js logo"
           width={500}
           height={150}
