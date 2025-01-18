@@ -22,11 +22,11 @@ const NewsPage = ({
 }: NewsPageProps) => {
   const newsEmpty = newsItems.length === 0;
   return (
-    <div className="sm:mx-[18em] mx-[0.5em] sm:p-8 p-5 pb-20 gap-16 sm:px-20 sm:py-8 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col row-start-2 items-center sm:items-start">
+    <div className="sm:mx-[18em] mx-[0.5em] sm:p-8 p-5 pb-20 gap-16 sm:px-20 sm:py-8 font-[family-name:var(--font-noto-sans-jp)]">
+      <main className="flex flex-col row-start-2 items-center border-b-2 border-gray-200">
         <Link href="/">
           <Image
-            src="/bbsr-news.svg"
+            src="/ibkr.svg"
             alt="Next.js logo"
             width={250}
             height={75}
@@ -38,7 +38,7 @@ const NewsPage = ({
             return (
               <Link key={section} href={`/${section}`}>
                 <span
-                  className={`capitalize inline-flex items-center px-2 py-1 text-sm font-medium text-black border-b-[2.5px] ${
+                  className={`capitalize inline-flex items-center px-2 py-1 font-medium text-black border-b-[2.5px] ${
                     section === path ? "border-black" : "border-transparent"
                   }`}
                 >
@@ -59,7 +59,7 @@ const NewsPage = ({
           )}
         </div>
       </main>
-      <div className="flex justify-between font-medium">
+      <div className="flex justify-between font-medium mt-4">
         <div>
           {!newsEmpty && parseInt(page) < totalPage && (
             <Link

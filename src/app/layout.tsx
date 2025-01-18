@@ -1,26 +1,20 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Noticia_Text } from "next/font/google";
+import { Noto_Serif_Devanagari, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const notoSerifDevanagari = Noto_Serif_Devanagari({
+  variable: "--font-noto-serif-devanagari",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const notoSansJP = Noto_Sans_JP({
+  variable: "--font-noto-sans-jp",
   subsets: ["latin"],
-});
-
-const noticiaText = Noticia_Text({
-  variable: "--font-noticia-text",
-  subsets: ["latin"],
-  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "DGXP News",
-  description: "DGXP News: For busy people who want to stay informed.",
+  title: "I'm Busy Keep Read",
+  description: "For busy people who want to stay informed.",
 };
 
 export default function RootLayout({
@@ -31,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${noticiaText.variable} antialiased`}
+        className={`${notoSerifDevanagari.variable} ${notoSansJP.variable} antialiased`}
       >
         {children}
       </body>

@@ -38,21 +38,21 @@ const NewsItem = ({ news }: { news: INewsItem }) => {
   return (
     <article key={news.id} className="relative group">
       <div className="flex items-start gap-6 mb-2">
-        <div className="min-w-0 flex-1 font-[family-name:var(--font-noticia-text)]">
-          <div className="flex items-center gap-x-4 text-sm mb-2 font-[family-name:var(--font-geist-sans)]">
+        <div className="min-w-0 flex-1 font-[family-name:var(--font-noto-sans-jp)]">
+          <div className="flex items-center gap-x-4 text-sm mb-4 font-[family-name:var(--font-noto-sans-jp)]">
             <time dateTime={news.publishDate} className="text-xs text-gray-500">
               {publishDate}
             </time>
             <span
-              className={`capitalize inline-flex items-center px-2 py-1 text-xs font-bold text-gray-800`}
+              className={`capitalize inline-flex items-center px-2 py-1 text-xs font-bold text-blue-700`}
             >
               {news.section}
             </span>
           </div>
-          <h2 className="sm:text-[30px] text-[24px] leading-tight font-bold text-blue-800 mb-5">
+          <h2 className="sm:text-[30px] text-[24px] leading-tight font-semibold mb-3 font-[family-name:var(--font-noto-serif-devanagari)]">
             {news.title}
           </h2>
-          <div className="text-gray-700 font-medium leading-6 mb-4 sm:text-[17px] text-[15px] font-[family-name:var(--font-geist-sans)]">
+          <div className="text-gray-700 font-medium leading-6 mb-4 sm:text-[18px] text-[17px] font-[family-name:var(--font-noto-serif-devanagari)]">
             <div>
               {!error &&
                 showedNews.map((section: string, index: number) => {
@@ -68,7 +68,7 @@ const NewsItem = ({ news }: { news: INewsItem }) => {
                   }
                   return (
                     <div
-                      className="mb-4 border-l-[3px] border-gray-400 py-2 pl-3 even:bg-gray-100"
+                      className="mb-4 border-l-[3px] border-gray-400 py-2 pl-3 even:bg-gray-100 font-[family-name:var(--font-noto-sans-jp)]"
                       key={index}
                     >
                       {section}
@@ -81,7 +81,7 @@ const NewsItem = ({ news }: { news: INewsItem }) => {
                 href={news.sourceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-700 cursor-pointer mt-5 block font-medium font-[family-name:var(--font-geist-sans)]"
+                className="text-blue-700 cursor-pointer mt-5 block font-medium font-[family-name:var(--font-noto-sans-jp)]"
               >
                 Read the original news
                 <Image
@@ -96,7 +96,7 @@ const NewsItem = ({ news }: { news: INewsItem }) => {
               <button
                 disabled={loading}
                 onClick={handleShowMore}
-                className="text-blue-700 mt-2 cursor-pointer block font-medium font-[family-name:var(--font-geist-sans)]"
+                className="text-blue-700 mt-2 cursor-pointer block font-medium font-[family-name:var(--font-noto-sans-jp)]"
               >
                 Read more...
               </button>

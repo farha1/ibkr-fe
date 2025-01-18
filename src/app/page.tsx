@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Footer from "./[section]/[[...page]]/components/Footer";
 
 export default async function Page() {
   const sections = [
@@ -11,21 +12,21 @@ export default async function Page() {
     "football",
   ];
   return (
-    <div className="sm:mx-[18em] mx-[0.5em] sm:pt-36 pt-20 p-5 pb-20 gap-16 sm:px-20 sm:py-8 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-2 row-start-2 items-center">
+    <div className="sm:mx-[18em] mx-[0.5em] sm:pt-36 pt-20 p-5 pb-20 gap-16 sm:px-20 sm:py-8 font-[family-name:var(--font-noto-sans-jp)]">
+      <main className="flex flex-col gap-10 row-start-2 items-center">
         <Image
-          src="/bbsr-news.svg"
+          src="/ibkr.svg"
           alt="Next.js logo"
           width={500}
           height={150}
           priority
         />
         <div className="sm:w-3/4 w-full text-center flex flex-col gap-5">
-          <p className="font-bold text-xl">
+          <p className="leading-relaxed text-xl">
             We offer a new experience in reading news. For busy people who want
             to stay informed.
           </p>
-          <p className="font-bold text-xl">
+          <p className="text-xl">
             Choose the topic you want to read.
           </p>
           <div className="flex justify-center gap-4 flex-wrap mt-2">
@@ -46,6 +47,7 @@ export default async function Page() {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }
