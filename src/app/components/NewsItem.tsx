@@ -2,7 +2,7 @@
 
 import React from "react";
 import { formatRelative } from "date-fns";
-import { INewsItem } from "../page";
+import { INewsItem } from "../[section]/[[...page]]/page";
 import Image from "next/image";
 
 const NewsItem = ({ news }: { news: INewsItem }) => {
@@ -37,7 +37,7 @@ const NewsItem = ({ news }: { news: INewsItem }) => {
 
   return (
     <article key={news.id} className="relative group">
-      <div className="flex items-start gap-6 mb-2">
+      <div className="flex items-start gap-6 mb-2 border-b-2 border-gray-200">
         <div className="min-w-0 flex-1 font-[family-name:var(--font-noto-sans-jp)]">
           <div className="flex items-center gap-x-4 text-sm mb-4 font-[family-name:var(--font-noto-sans-jp)]">
             <time dateTime={news.publishDate} className="text-xs text-gray-500">

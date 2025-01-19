@@ -1,12 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { INewsItem } from "../page";
+import { INewsItem } from "../[section]/[[...page]]/page";
 import NewsItem from "./NewsItem";
 import Footer from "./Footer";
 
 interface NewsPageProps {
-  sections: string[];
   newsItems: INewsItem[];
   path: string;
   page: string;
@@ -14,26 +13,33 @@ interface NewsPageProps {
 }
 
 const NewsPage = ({
-  sections,
   newsItems,
   path,
   page = "1",
   totalPage,
 }: NewsPageProps) => {
+  const sections = [
+    "all",
+    "world",
+    "technology",
+    "science",
+    "environment",
+    "football",
+  ];
   const newsEmpty = newsItems.length === 0;
   return (
     <div className="sm:mx-[18em] mx-[0.5em] sm:p-8 p-5 pb-20 gap-16 sm:px-20 sm:py-8 font-[family-name:var(--font-noto-sans-jp)]">
-      <main className="flex flex-col row-start-2 items-center border-b-2 border-gray-200">
+      <main className="flex flex-col row-start-2 items-center">
         <Link href="/">
           <Image
             src="/ibkr.svg"
             alt="Next.js logo"
-            width={250}
-            height={75}
+            width={200}
+            height={60}
             priority
           />
         </Link>
-        <div className="flex gap-2 flex-wrap mt-4">
+        <div className="w-full flex flex-wrap gap-2 justify-center sm:sticky sm:top-0 bg-white z-10 sm:py-4">
           {sections.map((section) => {
             return (
               <Link key={section} href={`/${section}`}>
@@ -51,7 +57,7 @@ const NewsPage = ({
 
         <div className="w-full space-y-6 mt-8">
           {newsEmpty ? (
-            <h1 className="text-2xl font-bold mb-10">No news found</h1>
+            <h1 className="text-2xl font-bold mb-10 text-center">No news found</h1>
           ) : (
             newsItems.map((news) => {
               return <NewsItem key={news.id} news={news} />;

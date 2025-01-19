@@ -1,4 +1,4 @@
-import NewsPage from "./components/NewsPage";
+import NewsPage from "../../components/NewsPage";
 
 export interface INewsItem {
   id: number;
@@ -72,14 +72,6 @@ export default async function Page({
 }: {
   params: Promise<{ page: string[]; section: string }>;
 }) {
-  const sections = [
-    "all",
-    "world",
-    "technology",
-    "science",
-    "environment",
-    "football",
-  ];
   const { page, section: path } = await params;
 
   try {
@@ -124,7 +116,6 @@ export default async function Page({
 
     return (
       <NewsPage
-        sections={sections}
         newsItems={newsItems}
         path={path}
         page={page?.[0]}
@@ -136,7 +127,6 @@ export default async function Page({
     // Return a basic page with error state
     return (
       <NewsPage
-        sections={sections}
         newsItems={[]}
         path={path}
         page={page?.[0]}
