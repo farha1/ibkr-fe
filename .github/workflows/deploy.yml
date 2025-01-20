@@ -27,8 +27,7 @@ jobs:
 
     # Step 4: Push Docker image to Docker Hub (optional)
     - name: Push Docker image to Docker Hub
-      run: docker tag ibkr-fe:latest farha1/ibkr-fe:latest && \
-           docker push farha1/ibkr-fe:latest
+      run: docker tag ibkr-fe:latest farha1/ibkr-fe:latest && docker push farha1/ibkr-fe:latest
 
     # Step 5: Deploy Docker image to server
     - name: Deploy to server
