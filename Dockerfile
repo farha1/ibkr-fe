@@ -33,7 +33,7 @@ COPY . .
 # ENV NEXT_TELEMETRY_DISABLED=1
 
 # Set the arguments as environment variables
-ENV BACKEND_HOST=$BACKEND_HOST
+ENV BACKEND_HOST=${BACKEND_HOST}
 
 RUN \
   if [ -f yarn.lock ]; then yarn run build; \
