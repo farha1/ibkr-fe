@@ -23,7 +23,7 @@ jobs:
 
     # Step 3: Build the Docker image
     - name: Build Docker image
-      run: docker build -t ibkr-fe:latest .
+      run: docker build --build-arg BACKEND_HOST=${{ secrets.BACKEND_HOST }} -t ibkr-fe:latest .
 
     # Step 4: Push Docker image to Docker Hub (optional)
     - name: Push Docker image to Docker Hub
