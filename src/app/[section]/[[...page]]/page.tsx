@@ -9,7 +9,7 @@ export interface INewsItem {
   sourceUrl: string;
 }
 
-export const revalidate = 60;
+export const revalidate = 600;
 
 export const dynamicParams = true;
 

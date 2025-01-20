@@ -39,7 +39,7 @@ const NewsPage = ({
             priority
           />
         </Link>
-        <div className="w-full flex flex-wrap gap-2 justify-center sm:sticky sm:top-0 bg-white z-10 sm:py-4">
+        <div className="w-full flex flex-wrap gap-2 justify-center sm-mt-4 mt-0 sm:sticky sm:top-0 bg-white z-10 sm:py-4">
           {sections.map((section) => {
             return (
               <Link key={section} href={`/${section}`}>
