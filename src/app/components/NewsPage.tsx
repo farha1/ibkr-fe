@@ -42,7 +42,7 @@ const NewsPage = ({
         <div className="w-full flex flex-wrap gap-2 justify-center sm-mt-4 mt-0 sm:sticky sm:top-0 bg-white z-10 sm:py-4">
           {sections.map((section) => {
             return (
-              <Link key={section} href={`/${section}`}>
+              <Link key={section} href={`/${section}/1`}>
                 <span
                   className={`capitalize inline-flex items-center px-2 py-1 font-medium text-black border-b-[2.5px] ${
                     section === path ? "border-black" : "border-transparent"
