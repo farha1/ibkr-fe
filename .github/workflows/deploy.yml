@@ -32,14 +32,14 @@ jobs:
     # Step 5: Deploy Docker image to server
     - name: Deploy to server
       uses: appleboy/ssh-action@v0.1.7
-      env:
-        BACKEND_HOST: ${{ secrets.BACKEND_HOST }}
+      # env:
+      #   BACKEND_HOST: ${{ secrets.BACKEND_HOST }}
       with:
         host: ${{ secrets.SERVER_HOST }}
         username: ${{ secrets.SERVER_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
-        envs: BACKEND_HOST
+        # envs: BACKEND_HOST
         script: |
           # Pull the latest image (if using Docker Hub)
           docker pull farha1/ibkr-fe:latest
@@ -49,7 +49,7 @@ jobs:
           docker rm ibkr-fe || true
 
           # Run the new container
-          docker run -e BACKEND_HOST=${BACKEND_HOST} -d \
+          docker run -e BACKEND_HOST=${{ secrets.BACKEND_HOST }} -d \
             --name ibkr-fe \
             -p 3021:3021 \
             farha1/ibkr-fe:latest
