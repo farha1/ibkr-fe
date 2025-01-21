@@ -49,7 +49,7 @@ jobs:
           docker rm ibkr-fe || true
 
           # Run the new container
-          docker run -d \
+          docker run -e BACKEND_HOST=$BACKEND_HOST -d \
             --name ibkr-fe \
             -p 3021:3021 \
             farha1/ibkr-fe:latest
