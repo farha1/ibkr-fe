@@ -39,6 +39,7 @@ jobs:
         username: ${{ secrets.SERVER_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
+        env: BACKEND_HOST
         script: |
           # Pull the latest image (if using Docker Hub)
           docker pull farha1/ibkr-fe:latest
