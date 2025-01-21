@@ -34,8 +34,8 @@ const NewsPage = ({
           <Image
             src="/ibkr.svg"
             alt="Next.js logo"
-            width={200}
-            height={60}
+            width={217}
+            height={65}
             priority
           />
         </Link>
