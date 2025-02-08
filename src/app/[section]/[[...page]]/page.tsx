@@ -9,64 +9,6 @@ export interface INewsItem {
   sourceUrl: string;
 }
 
-export const revalidate = 600;
-
-export const dynamicParams = true;
-
-export async function generateStaticParams() {
-  const sections = [
-    "all",
-    "world",
-    "technology",
-    "science",
-    "environment",
-    "football",
-  ];
-  const params = [];
-  for (const section of sections) {
-    try {
-      const url = new URL(`${process.env.BACKEND_HOST}/news/meta`);
-      if (section !== "all") url.searchParams.set("section", section);
-      const posts: { totalPage: number } = await fetch(url)
-        .then(async (res) => {
-          if (!res.ok) {
-            throw new Error(`Failed to fetch meta: ${res.status}`);
-          }
-          const text = await res.text();
-          try {
-            return text ? JSON.parse(text) : { totalPage: 1 };
-          } catch (error) {
-            console.error(
-              "Error parsing meta JSON:",
-              error,
-              "Response text:",
-              text
-            );
-            return { totalPage: 1 };
-          }
-        })
-        .catch((error) => {
-          console.error(`Error fetching meta for section ${section}:`, error);
-          return { totalPage: 1 };
-        });
-
-      params.push(
-        ...Array.from({ length: posts.totalPage || 1 }, (_, i) => ({
-          page: [`${i + 1}`],
-          section: section,
-        }))
-      );
-    } catch (error) {
-      console.error(`Error processing section ${section}:`, error);
-      params.push({
-        page: ["1"],
-        section: section,
-      });
-    }
-  }
-  return params;
-}
-
 export default async function Page({
   params,
 }: {
